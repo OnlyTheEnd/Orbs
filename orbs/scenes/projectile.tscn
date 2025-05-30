@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://nmc3k103cerk"]
+
+[ext_resource type="Script" uid="uid://bpn5djf6nv3xt" path="res://scripts/projectile.gd" id="1_c8fcr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6aapk"]
+specular_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aapk"]
+size = Vector2(4, 8)
+
+[node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_c8fcr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(4.5, 8.1)
+texture = SubResource("CanvasTexture_6aapk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6aapk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6aapk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

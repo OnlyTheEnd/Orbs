@@ -1,13 +1,15 @@
-extends Label
+extends Area2D
+class_name PlayerDamage
 
-@export var high_score:= 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
 
-func set_score(value) -> void:
-	$HiScore.text = "HiScore: " + str(value)
+
+func _on_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
