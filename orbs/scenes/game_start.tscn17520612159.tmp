@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfjva7es6anof"]
+
+[ext_resource type="PackedScene" uid="uid://cobdbr3foicwx" path="res://scenes/player.tscn" id="1_cd562"]
+[ext_resource type="Script" uid="uid://dbygchhaifcd0" path="res://scripts/game_manager.gd" id="1_s5y6q"]
+[ext_resource type="PackedScene" uid="uid://bxcgi5sxda15k" path="res://scenes/pause_menu.tscn" id="2_s5y6q"]
+
+[node name="GameStart" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_s5y6q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_cd562")]
+position = Vector2(-6, -16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_s5y6q")]
+visibility_layer = 2
+metadata/_edit_use_anchors_ = true

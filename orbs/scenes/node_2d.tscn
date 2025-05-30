@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://beygn0d0ek7ol"]
+[gd_scene load_steps=2 format=3 uid="uid://beygn0d0ek7ol"]
 
-[ext_resource type="Script" uid="uid://dbygchhaifcd0" path="res://scripts/game_manager.gd" id="1_4dvvg"]
 [ext_resource type="PackedScene" uid="uid://stkct102uxv4" path="res://scenes/main_menu.tscn" id="2_rnjyy"]
 
 [node name="Game" type="Node2D"]
-
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("1_4dvvg")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_rnjyy")]
 anchors_preset = 0

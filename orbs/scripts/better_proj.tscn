@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcpmanm6jlqm1"]
+
+[ext_resource type="Script" uid="uid://dcadkcl4dxvug" path="res://scripts/better_proj.gd" id="1_yhyyd"]
+
+[node name="BetterProj" type="CharacterBody2D"]
+script = ExtResource("1_yhyyd")
