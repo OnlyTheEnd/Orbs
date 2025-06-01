@@ -15,6 +15,10 @@ run/main_scene="uid://beygn0d0ek7ol"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/waver/OneDrive/Documents/Orbs/orbs/vids/vids.avi"
+
 [input]
 
 left={

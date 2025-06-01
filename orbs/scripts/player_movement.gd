@@ -25,13 +25,19 @@ const SPEED = 300.0
 	#move_and_slide()
 	#
 
-#hell mode movement: hold space for acceleration
+#hell mode movement: hold space for accelerationposition
+func projloc() -> Vector2:
+	get_node("Spawning/test").progress_ratio = randf_range(0, 1)
+	return get_node("Spawning/test").global_position 
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * SPEED
 	
+	
+
 func _physics_process(delta):
+	
 	get_input()
 	move_and_slide()
 	

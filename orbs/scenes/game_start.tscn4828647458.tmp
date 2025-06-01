@@ -1,18 +1,78 @@
-[gd_scene load_steps=8 format=4 uid="uid://dfjva7es6anof"]
+[gd_scene load_steps=10 format=4 uid="uid://dfjva7es6anof"]
 
 [ext_resource type="PackedScene" uid="uid://cobdbr3foicwx" path="res://scenes/player.tscn" id="1_cd562"]
 [ext_resource type="Script" uid="uid://dbygchhaifcd0" path="res://scripts/game_manager.gd" id="1_s5y6q"]
 [ext_resource type="PackedScene" uid="uid://bxcgi5sxda15k" path="res://scenes/pause_menu.tscn" id="2_s5y6q"]
 [ext_resource type="PackedScene" uid="uid://b1aahiuwx1d" path="res://scenes/game_over_menu.tscn" id="4_eblkc"]
 [ext_resource type="Texture2D" uid="uid://bnn6c80ko6sqn" path="res://assets/art/sprites/Preview.png" id="5_eblkc"]
+[ext_resource type="Texture2D" uid="uid://d1housbjqr7fp" path="res://assets/art/sprites/rock_round.png" id="6_qwoy3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eblkc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qwoy3"]
 texture = ExtResource("5_eblkc")
-0:0/size_in_atlas = Vector2i(32, 32)
+texture_region_size = Vector2i(1, 1)
+0:0/size_in_atlas = Vector2i(33, 32)
 0:0/0 = 0
+33:0/size_in_atlas = Vector2i(31, 32)
+33:0/0 = 0
+33:32/size_in_atlas = Vector2i(31, 32)
+33:32/0 = 0
+0:32/size_in_atlas = Vector2i(33, 32)
+0:32/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_qwoy3"]
-sources/0 = SubResource("TileSetAtlasSource_eblkc")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48jrx"]
+texture = ExtResource("6_qwoy3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_48jrx"]
+sources/0 = SubResource("TileSetAtlasSource_qwoy3")
+sources/1 = SubResource("TileSetAtlasSource_48jrx")
 
 [node name="GameStart" type="Node2D"]
 
@@ -46,10 +106,10 @@ metadata/_edit_use_anchors_ = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1536, 1024)
+motion_mirroring = Vector2(2048, 1024)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]
-tile_map_data = PackedByteArray("AAAPAA8AAAAAAAAAAAAvAA8AAAAAAAAAAAAPAC8AAAAAAAAAAAAvAC8AAAAAAAAAAABPAA8AAAAAAAAAAABPAC8AAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_qwoy3")
+[node name="placeholder" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]
+tile_map_data = PackedByteArray("AAAQAA8AAAAAAAAAAAAwAA8AAAAhAAAAAABQAA8AAAAAACAAAABwAA8AAAAhACAAAAAPAC8AAAAhACAAAAAvAC8AAAAAACAAAABPAC8AAAAhAAAAAABvAC8AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_48jrx")
 
 [connection signal="tree_exiting" from="GameManager/Player" to="GameManager" method="_on_player_tree_exiting"]

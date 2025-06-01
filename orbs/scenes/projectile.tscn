@@ -1,31 +1,129 @@
-[gd_scene load_steps=4 format=3 uid="uid://nmc3k103cerk"]
+[gd_scene load_steps=18 format=3 uid="uid://nmc3k103cerk"]
 
 [ext_resource type="Script" uid="uid://bpn5djf6nv3xt" path="res://scripts/projectile.gd" id="1_c8fcr"]
+[ext_resource type="Texture2D" uid="uid://d1housbjqr7fp" path="res://assets/art/sprites/rock_round.png" id="2_q3m7n"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_6aapk"]
-specular_color = Color(1, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_softn"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aapk"]
-size = Vector2(4, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2a6"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byeak"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxwu6"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7nm8"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c2e5"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl1gp"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejmht"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_031o2"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo60o"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgir"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rimnf"]
+atlas = ExtResource("2_q3m7n")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l47rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_softn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q2a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byeak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxwu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7nm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c2e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl1gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejmht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_031o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo60o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rimnf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_softn"]
+radius = 15.0333
 
 [node name="Projectile" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_c8fcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(4.5, 8.1)
-texture = SubResource("CanvasTexture_6aapk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l47rv")
+frame_progress = 0.486572
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
+autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_6aapk")
+shape = SubResource("CircleShape2D_q3m7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6aapk")
+visible = false
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_softn")
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

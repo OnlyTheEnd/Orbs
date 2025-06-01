@@ -4,13 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://03rggktluu3y" path="res://icon.svg" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://b0qt8a3w362rs" path="res://scripts/detection_node.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://i0lbcacbk4d8" path="res://scripts/health_node.gd" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://chi6ew6vvf8gj" path="res://scripts/damage_node.gd" id="5_qlg0r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
 radius = 64.1249
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 radius = 649.038
+
+[sub_resource type="Curve2D" id="Curve2D_qlg0r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4.68168, -843.056, 0, 0, 0, 0, 1.07793, 757.275, 0, 0, 0, 0, 2252.01, 729.931, 0, 0, 0, 0, 2233.89, -822.989, 0, 0, 0, 0, -12.3612, -870.648)
+}
+point_count = 5
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -19,27 +24,41 @@ script = ExtResource("1_g2els")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qhqgy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qlg0r")
-
 [node name="HealthNode" type="Node2D" parent="."]
 position = Vector2(3, 5)
 script = ExtResource("3_qhqgy")
 
 [node name="DamageNode" type="Area2D" parent="."]
-script = ExtResource("5_qlg0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageNode"]
 shape = SubResource("CircleShape2D_qlg0r")
 
 [node name="DetectionNode" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionNode"]
-position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_dqkch")
 debug_color = Color(0.703171, 0, 0.102999, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 0
+visibility_layer = 0
+position = Vector2(6.10352e-05, -9.53674e-07)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_qlg0r")
+
+[node name="Spawning" type="Path2D" parent="."]
+position = Vector2(-512.562, 13.9583)
+scale = Vector2(0.475382, 0.4147)
+curve = SubResource("Curve2D_qlg0r")
+
+[node name="test" type="PathFollow2D" parent="Spawning"]
+position = Vector2(-1.17771, 130.536)
+rotation = 1.5672
+progress = 973.597
 
 [connection signal="area_entered" from="DamageNode" to="HealthNode" method="_on_damage_node_area_entered"]

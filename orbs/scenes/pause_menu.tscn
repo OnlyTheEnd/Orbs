@@ -84,23 +84,23 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Test" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Test"
+text = "resume"
 
-[node name="Test2" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="main menu" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Test2"
+text = "main menu"
 
-[node name="Test3" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Test3"
+text = "quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_mhnvy")
 }
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Test" to="." method="_on_test_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Test2" to="." method="_on_test_2_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Test3" to="." method="_on_test_3_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/main menu" to="." method="_on_test_2_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/quit" to="." method="_on_test_3_pressed"]

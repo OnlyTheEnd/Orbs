@@ -13,4 +13,5 @@ func damage(attack):
 
 
 func _on_damage_node_area_entered(area: Area2D) -> void:
+	print("ping")
 	damage(1) # Replace with function body.

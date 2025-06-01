@@ -27,8 +27,10 @@ var player_health :int
 func spawnproj():
 	if Input.is_action_just_pressed("summon bullet"):
 		var proj = Proj.instantiate()
-		randomize()
-		proj.position = Vector2(randi() % 101, randi() % 101)
+		var loc = get_node("Player").projloc()
+		proj.target = get_node("Player")
+		proj.look(get_node("Player/Sprite2D").global_position)
+		proj.position = loc
 		get_tree().current_scene.add_child(proj)
 
 
