@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://xifsbudwb36j"]
+
+[ext_resource type="Texture2D" uid="uid://by7sir6g0v1cg" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile5.png" id="1_vkmbg"]
+[ext_resource type="Script" uid="uid://bd1adw5wjxpb8" path="res://scenes/GameElements/red_projectile.gd" id="1_wmunr"]
+[ext_resource type="Texture2D" uid="uid://rtesa461uylh" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile6.png" id="2_wmunr"]
+[ext_resource type="Texture2D" uid="uid://cq65t7e0v6u26" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile7.png" id="3_cs5oj"]
+[ext_resource type="PackedScene" uid="uid://y20588l4owat" path="res://scenes/GameParts/hurtbox_part.tscn" id="4_1atrr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ek12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vkmbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wmunr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cs5oj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_coqex"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjsii"]
+radius = 3.0
+
+[node name="Red_projectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_wmunr")
+speed = 100
+damage = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(0.139401, 0.134328)
+sprite_frames = SubResource("SpriteFrames_4ek12")
+frame_progress = 0.359319
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_coqex")
+disabled = true
+metadata/_edit_group_ = true
+
+[node name="HurtboxPart" parent="." instance=ExtResource("4_1atrr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxPart"]
+shape = SubResource("CircleShape2D_fjsii")
+metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="HurtboxPart" to="." method="_on_hurtbox_part_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

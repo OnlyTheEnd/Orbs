@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://beygn0d0ek7ol"]
 
-[ext_resource type="PackedScene" uid="uid://stkct102uxv4" path="res://scenes/main_menu.tscn" id="1_4dpue"]
+[ext_resource type="PackedScene" uid="uid://stkct102uxv4" path="res://scenes/UI/main_menu.tscn" id="1_yruan"]
 
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_4dpue")]
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_yruan")]
 process_mode = 3
 anchors_preset = 0
 anchor_right = 0.0

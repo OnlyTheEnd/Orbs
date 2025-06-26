@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=4 uid="uid://dfjva7es6anof"]
+
+[ext_resource type="Script" uid="uid://dbygchhaifcd0" path="res://scripts/game_manager.gd" id="1_xgvu5"]
+[ext_resource type="PackedScene" uid="uid://cobdbr3foicwx" path="res://scenes/GameElements/player.tscn" id="2_q5fr2"]
+[ext_resource type="PackedScene" uid="uid://bxcgi5sxda15k" path="res://scenes/UI/pause_menu.tscn" id="3_i5k6i"]
+[ext_resource type="PackedScene" uid="uid://b1aahiuwx1d" path="res://scenes/UI/game_over_menu.tscn" id="4_pnquj"]
+[ext_resource type="Texture2D" uid="uid://bnn6c80ko6sqn" path="res://assets/art/sprites/Preview.png" id="5_shaxw"]
+[ext_resource type="PackedScene" uid="uid://cx0r13ag7vx1s" path="res://scenes/GameElements/wall_segment.tscn" id="6_q5fr2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eblkc"]
+texture = ExtResource("5_shaxw")
+0:0/size_in_atlas = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qwoy3"]
+sources/0 = SubResource("TileSetAtlasSource_eblkc")
+
+[node name="GameStart" type="Node2D"]
+
+[node name="ProjectilePool" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_xgvu5")
+
+[node name="WallSegment" parent="GameManager" instance=ExtResource("6_q5fr2")]
+position = Vector2(-121, -108)
+
+[node name="Player" parent="GameManager" instance=ExtResource("2_q5fr2")]
+position = Vector2(564, 320)
+
+[node name="UI stuff" type="CanvasLayer" parent="GameManager"]
+visible = false
+
+[node name="Tims" type="Label" parent="GameManager/UI stuff"]
+offset_left = 561.0
+offset_top = 52.0
+offset_right = 596.0
+offset_bottom = 82.0
+text = "Test"
+
+[node name="PauseMenu" parent="GameManager/UI stuff" instance=ExtResource("3_i5k6i")]
+visibility_layer = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOverMenu" parent="GameManager/UI stuff" instance=ExtResource("4_pnquj")]
+offset_top = 5.0
+offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1536, 1024)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]
+tile_map_data = PackedByteArray("AAAPAA8AAAAAAAAAAAAvAA8AAAAAAAAAAAAPAC8AAAAAAAAAAAAvAC8AAAAAAAAAAABPAA8AAAAAAAAAAABPAC8AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_qwoy3")
+
+[connection signal="tree_exiting" from="GameManager/Player" to="GameManager" method="_on_player_tree_exiting"]

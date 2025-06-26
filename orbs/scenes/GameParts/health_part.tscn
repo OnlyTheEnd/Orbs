@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dos48531eout3"]
+
+[ext_resource type="Script" uid="uid://i0lbcacbk4d8" path="res://scripts/health_part.gd" id="1_ou4ax"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ou4ax"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bpxqi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l6ooi"]
+
+[node name="HealthPart" type="Node2D"]
+script = ExtResource("1_ou4ax")
+MAXHEALTH = 20.0
+shieldcolor = Color(0.239216, 0.462745, 1, 0.721569)
+
+[node name="Healthbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 3.0
+
+[node name="HEALTHBAR" type="TextureProgressBar" parent="Healthbar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.00031, 0.0766429)
+allow_greater = true
+nine_patch_stretch = true
+texture_under = SubResource("CanvasTexture_ou4ax")
+texture_over = SubResource("CanvasTexture_bpxqi")
+texture_progress = SubResource("CanvasTexture_l6ooi")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(1, 0, 0, 1)

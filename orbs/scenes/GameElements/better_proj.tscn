@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qyohrtb65m3g"]
+
+[ext_resource type="Script" uid="uid://cxqjbelak2hxc" path="res://better_proj.gd" id="1_kv46q"]
+
+[node name="BetterProj" type="Node2D"]
+script = ExtResource("1_kv46q")

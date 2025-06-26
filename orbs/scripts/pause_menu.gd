@@ -32,7 +32,7 @@ func _on_test_pressed() -> void:
 
 func _on_test_2_pressed() -> void:
 	resume()
-	get_tree().change_scene_to_file("res://scenes/1root.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/1root.tscn")
 
 
 func _on_test_3_pressed() -> void:
