@@ -15,6 +15,10 @@ run/main_scene="uid://beygn0d0ek7ol"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameConfig="*res://scripts/game_config.gd"
+
 [display]
 
 window/size/viewport_height=640

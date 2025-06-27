@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cfdusrau1lral"]
+
+[ext_resource type="Texture2D" uid="uid://dc8g2itktyuj6" path="res://assets/Child Of Gun Art Kit/sp_mossyTiles.png" id="1_41h0a"]
+
+[resource]
+atlas = ExtResource("1_41h0a")
+region = Rect2(16, 64, 16, 16)

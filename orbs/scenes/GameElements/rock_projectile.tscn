@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://b7hvyv4dbbgng"]
 
-[ext_resource type="Script" uid="uid://cqma0r1t2jyje" path="res://rock_projectile.gd" id="1_6vbwp"]
+[ext_resource type="Script" uid="uid://cqma0r1t2jyje" path="res://scripts/rock_projectile.gd" id="1_6vbwp"]
 [ext_resource type="Texture2D" uid="uid://d1housbjqr7fp" path="res://assets/art/sprites/rock_round.png" id="2_m7gpc"]
 [ext_resource type="PackedScene" uid="uid://y20588l4owat" path="res://scenes/GameParts/hurtbox_part.tscn" id="3_7gn65"]
 

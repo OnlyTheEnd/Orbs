@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=4 uid="uid://dfjva7es6anof"]
 
 [ext_resource type="Script" uid="uid://dbygchhaifcd0" path="res://scripts/game_manager.gd" id="1_xgvu5"]
-[ext_resource type="Script" uid="uid://d23ph0is7gfw8" path="res://scenes/UI/walls.gd" id="2_i5k6i"]
-[ext_resource type="Script" uid="uid://datcg3nb7s2jf" path="res://scenes/UI/projectile_pool.gd" id="2_pnquj"]
+[ext_resource type="Script" uid="uid://d23ph0is7gfw8" path="res://scripts/walls.gd" id="2_i5k6i"]
+[ext_resource type="Script" uid="uid://datcg3nb7s2jf" path="res://scripts/projectile_pool.gd" id="2_pnquj"]
 [ext_resource type="PackedScene" uid="uid://cobdbr3foicwx" path="res://scenes/GameElements/player.tscn" id="2_q5fr2"]
 [ext_resource type="PackedScene" uid="uid://bxcgi5sxda15k" path="res://scenes/UI/pause_menu.tscn" id="3_i5k6i"]
 [ext_resource type="PackedScene" uid="uid://b7hvyv4dbbgng" path="res://scenes/GameElements/rock_projectile.tscn" id="3_shaxw"]
@@ -50,7 +50,7 @@ position = Vector2(564, 320)
 
 [node name="UI stuff" type="CanvasLayer" parent="GameManager"]
 
-[node name="Tims" type="Label" parent="GameManager/UI stuff"]
+[node name="Score" type="Label" parent="GameManager/UI stuff"]
 offset_left = 561.0
 offset_top = 52.0
 offset_right = 596.0
@@ -74,8 +74,6 @@ curve = SubResource("Curve2D_shaxw")
 position = Vector2(461.596, 256)
 progress = 973.597
 
-[node name="circle timer" type="Timer" parent="GameManager"]
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -87,4 +85,3 @@ tile_set = SubResource("TileSet_qwoy3")
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="tree_exiting" from="GameManager/Player" to="GameManager" method="_on_player_tree_exiting"]
-[connection signal="timeout" from="GameManager/circle timer" to="GameManager" method="_on_circle_timer_timeout"]

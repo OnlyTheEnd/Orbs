@@ -1,22 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://xifsbudwb36j"]
+[gd_scene load_steps=7 format=3 uid="uid://xifsbudwb36j"]
 
-[ext_resource type="Texture2D" uid="uid://by7sir6g0v1cg" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile5.png" id="1_vkmbg"]
-[ext_resource type="Script" uid="uid://bd1adw5wjxpb8" path="res://scenes/GameElements/red_projectile.gd" id="1_wmunr"]
-[ext_resource type="Texture2D" uid="uid://rtesa461uylh" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile6.png" id="2_wmunr"]
-[ext_resource type="Texture2D" uid="uid://cq65t7e0v6u26" path="res://assets/art/sprites/EvilBloodProjectile/evilProjectile7.png" id="3_cs5oj"]
+[ext_resource type="Script" uid="uid://bd1adw5wjxpb8" path="res://scripts/red_projectile.gd" id="1_wmunr"]
+[ext_resource type="Texture2D" uid="uid://dlddhjbtgkbfq" path="res://assets/Sprites - Lasers Bullets #1 [66]v2.5/Laser Sprites/02.png" id="2_us5hh"]
 [ext_resource type="PackedScene" uid="uid://y20588l4owat" path="res://scenes/GameParts/hurtbox_part.tscn" id="4_1atrr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ek12"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vkmbg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_wmunr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_cs5oj")
+"texture": ExtResource("2_us5hh")
 }],
 "loop": true,
 "name": &"default",
@@ -37,10 +29,10 @@ speed = 100
 damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -0.5)
-scale = Vector2(0.139401, 0.134328)
+position = Vector2(-1, 0)
+scale = Vector2(0.259843, 0.247967)
 sprite_frames = SubResource("SpriteFrames_4ek12")
-frame_progress = 0.359319
+frame_progress = 0.436412
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_coqex")

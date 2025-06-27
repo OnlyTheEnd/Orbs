@@ -1,5 +1,6 @@
 extends Area2D
 class_name PlayerDetection
+#used for later autoproj targeting things
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -11,7 +11,7 @@
 [node name="HealthPart" type="Node2D"]
 script = ExtResource("1_ou4ax")
 MAXHEALTH = 20.0
-shieldcolor = Color(0.239216, 0.462745, 1, 0.721569)
+shieldcolor = Color(0.156863, 0.392157, 1, 0.329412)
 
 [node name="Healthbar" type="Control" parent="."]
 layout_mode = 3

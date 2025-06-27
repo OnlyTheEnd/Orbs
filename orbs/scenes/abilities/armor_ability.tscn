@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bo414qaagxdos"]
 
-[ext_resource type="Script" uid="uid://dmq5viqjro0dc" path="res://armor_ability.gd" id="1_qqtgr"]
+[ext_resource type="Script" uid="uid://dmq5viqjro0dc" path="res://scripts/armor_ability.gd" id="1_qqtgr"]
 
-[node name="ArmorAbility" type="Node2D"]
+[node name="ShieldAbility" type="Node2D"]
 script = ExtResource("1_qqtgr")
 
 [node name="Cooldown" type="Timer" parent="."]

@@ -12,7 +12,7 @@ var SHIELD := 0.0
 var CURRHEALTH : float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	CURRHEALTH = MAXHEALTH# Replace with function body.
+	CURRHEALTH = MAXHEALTH
 	healthbar.value = CURRHEALTH
 	healthbar.max_value = MAXHEALTH
 	healthbar.visible = true
@@ -59,5 +59,4 @@ func scaleratio() -> float:
 
 
 func _on_hurtbox_part_area_entered(area: Hurtbox) -> void:
-		print("i")
 		damage(area.damage)

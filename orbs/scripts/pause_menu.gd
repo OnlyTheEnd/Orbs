@@ -5,9 +5,6 @@ extends Control
 func _ready() -> void:
 	hide()
 
-
-
-
 func pause():
 	get_tree().paused = true
 	show()

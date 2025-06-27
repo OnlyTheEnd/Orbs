@@ -1,16 +1,6 @@
 extends Control
 
 @export var StartGame : PackedScene
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/UI/game_start.tscn")
@@ -19,3 +9,15 @@ func _on_start_game_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _on_shield_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		GameConfig.ability_enabled = "shield"
+	else:
+		GameConfig.ability_enabled = "none"
+
+func _on_dash_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		GameConfig.ability_enabled = "dash"
+	else:
+		GameConfig.ability_enabled = "none"
